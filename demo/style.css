@@ -1,0 +1,39 @@
+* {
+  margin: 0px;
+  padding: 0px; }
+
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: silver; }
+
+#contanier {
+  background-color: yellow;
+  width: 600px;
+  height: 400px; }
+
+#tabNavi {
+  width: 600px;
+  height: 30px;
+  background-color: #00bfff;
+  text-decoration: none;
+  list-style-type: none; }
+
+#tabNavi li {
+  float: left;
+  margin-right: 6px;
+  background-color: #09dbdb;
+  color: #ff00dd;
+  cursor: pointer;
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 5px 0 5px; }
+
+#content {
+  width: 600px;
+  height: 370px;
+  background-color: white; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>js实现tab菜单动态切换效果</title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="./jquery.min.js"></script>
+    <script type="text/javascript">  
+ function show(x) { console.log(typeof x); // undefined 
+ console.log(typeof 10); // number 
+ console.log(typeof 'abc'); // string
+console.log(typeof true); // boolean 
+console.log(typeof function () {}); //function 
+console.log(typeof [1, 'a', true]); //object
+console.log(typeof { a: 10, b: 20 }); //object 
+console.log(typeof null); //object 
+console.log(typeof new Number(10)); //object
+} show();
+        function gel(id) {
+            return document.getElementById(id);
+        }
+
+        var arr = [
+            { "title": "新闻", "content": "这是新闻频道" },
+            { "title": "财经", "content": "这是财经频道" },
+            { "title": "娱乐", "content": "这是娱乐频道" },
+            { "title": "体育565656", "content": "这是体育频道" },
+            { "title": "汽车", "content": "这是汽车频道" },
+            { "title": "视频", "content": "这是视频频道" },
+            { "title": "体育", "content": "这是体育频道" },
+            { "title": "汽车", "content": "这是汽车频道" },
+            { "title": "视频", "content": "这是视频频道" },
+            { "title": "生活", "content": "这是生活频道" }
+        ];
+
+        window.onload = function () {
+            for (var i = 0; i < arr.length; i++) {
+                var liNew = document.createElement("li");
+                liNew.innerHTML = arr[i].title;
+                gel("tabNavi").appendChild(liNew);
+                //在这些li上面都绑定点击事件，就需要给他们每一个赋一个属性(最好是id)  
+                liNew.setAttribute("id", i);
+
+                liNew.onclick = function () {
+                    var navs = gel("tabNavi").childNodes;
+                    //清除所有颜色  
+                    for (var j = 0; j < navs.length; j++) {
+                        if (navs[j].nodeType == 1) {
+                            navs[j].style.backgroundColor = "skyblue";
+                        }
+                    }
+
+                    this.style.backgroundColor = "white";
+                    gel("content").innerHTML = arr[this.id].content;
+                    gel("#tabNavi li").css("color","red");
+                };
+            }
+        };  
+    </script>
+</head>
+
+<body>
+    <div id="contanier">
+        <ul id="tabNavi"></ul>
+        <div id="content" class="content"></div>
+    </div>
+</body>
+
+</html>
